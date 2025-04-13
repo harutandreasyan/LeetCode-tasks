@@ -19,6 +19,8 @@
 */
 
 var maxProfit = function (prices) {
+    if (prices.length < 2) return 0
+
 	let minPrice = prices[0]
 	let maxProf = 0
 

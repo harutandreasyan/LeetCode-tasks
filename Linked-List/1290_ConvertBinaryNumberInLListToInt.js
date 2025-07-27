@@ -39,8 +39,6 @@ var getDecimalValue = function (head) {
 	return decimal
 }
 
-/* ******************************* */
-
 let head1 = createLinkedList([1, 0, 1])
 console.log(getDecimalValue(head1)) // 5
 

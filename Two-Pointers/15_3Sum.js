@@ -26,55 +26,55 @@
     Output: [[0,0,0]]
     Explanation: The only possible triplet sums up to 0.
 
-	Constraints:
-		3 <= nums.length <= 3000
-		-10^5 <= nums[i] <= 10^5
+    Constraints:
+        3 <= nums.length <= 3000
+        -10^5 <= nums[i] <= 10^5
 */
 
 /* 1. Only checks nums[i] + nums[j] + nums[k] === 0 case. */
 /* Time - O(n^2), Space - O(1) */
 
 var threeSum = function (nums) {
-	const result = []
-	if (nums.length < 3) return result
+    const result = []
+    if (nums.length < 3) return result
 
-	nums.sort((a, b) => a - b)
+    nums.sort((a, b) => a - b)
 
-	for (let i = 0; i < nums.length - 2; ++i) {
-		if (nums[i] > 0) {
-			break
-		}
+    for (let i = 0; i < nums.length - 2; ++i) {
+        if (nums[i] > 0) {
+            break
+        }
 
-		if (i > 0 && nums[i] === nums[i - 1]) {
-			continue
-		}
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
 
-		let j = i + 1
-		let k = nums.length - 1
+        let j = i + 1
+        let k = nums.length - 1
 
-		while (j < k) {
-			let sum = nums[i] + nums[j] + nums[k]
+        while (j < k) {
+            let sum = nums[i] + nums[j] + nums[k]
 
-			if (sum === 0) {
-				result.push([nums[i], nums[j], nums[k]])
-				while (j < k && nums[j] === nums[j + 1]) {
-					j++
-				}
+            if (sum === 0) {
+                result.push([nums[i], nums[j], nums[k]])
+                while (j < k && nums[j] === nums[j + 1]) {
+                    j++
+                }
 
-				while (j < k && nums[k] === nums[k - 1]) {
-					k--
-				}
-				j++
-				k--
-			} else if (sum < 0) {
-				j++
-			} else if (sum > 0) {
-				k--
-			}
-		}
-	}
+                while (j < k && nums[k] === nums[k - 1]) {
+                    k--
+                }
+                j++
+                k--
+            } else if (sum < 0) {
+                j++
+            } else if (sum > 0) {
+                k--
+            }
+        }
+    }
 
-	return result
+    return result
 }
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4])) // [ [ -1, -1, 2 ], [ -1, 0, 1 ] ]
@@ -87,46 +87,46 @@ console.log(threeSum([-1, -1, 0, 0, 1, 1])) // [ [ -1, 0, 1 ] ]
 /* Time - O(n^2), Space - O(1) */
 
 var threeSum = function (nums, target = 0) {
-	const result = []
-	if (nums.length < 3) return result
+    const result = []
+    if (nums.length < 3) return result
 
-	nums.sort((a, b) => a - b)
+    nums.sort((a, b) => a - b)
 
-	for (let i = 0; i < nums.length - 2; ++i) {
-		if (target === 0 && nums[i] > target) {
-			break
-		}
+    for (let i = 0; i < nums.length - 2; ++i) {
+        if (target === 0 && nums[i] > target) {
+            break
+        }
 
-		if (i > 0 && nums[i] === nums[i - 1]) {
-			continue
-		}
+        if (i > 0 && nums[i] === nums[i - 1]) {
+            continue
+        }
 
-		let j = i + 1
-		let k = nums.length - 1
+        let j = i + 1
+        let k = nums.length - 1
 
-		while (j < k) {
-			let sum = nums[i] + nums[j] + nums[k]
+        while (j < k) {
+            let sum = nums[i] + nums[j] + nums[k]
 
-			if (sum === target) {
-				result.push([nums[i], nums[j], nums[k]])
-				while (j < k && nums[j] === nums[j + 1]) {
-					j++
-				}
+            if (sum === target) {
+                result.push([nums[i], nums[j], nums[k]])
+                while (j < k && nums[j] === nums[j + 1]) {
+                    j++
+                }
 
-				while (j < k && nums[k] === nums[k - 1]) {
-					k--
-				}
-				j++
-				k--
-			} else if (sum < target) {
-				j++
-			} else if (sum > target) {
-				k--
-			}
-		}
-	}
+                while (j < k && nums[k] === nums[k - 1]) {
+                    k--
+                }
+                j++
+                k--
+            } else if (sum < target) {
+                j++
+            } else if (sum > target) {
+                k--
+            }
+        }
+    }
 
-	return result
+    return result
 }
 
 // target = -3

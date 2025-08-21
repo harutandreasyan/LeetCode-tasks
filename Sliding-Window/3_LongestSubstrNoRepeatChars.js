@@ -26,21 +26,21 @@
 /* Time - O(n), Space - O(n) */
 
 var lengthOfLongestSubstring = function (s) {
-	let left = 0
-	let maxLen = 0
-	const set = new Set()
+    let left = 0
+    let maxLen = 0
+    const set = new Set()
 
-	for (let right = 0; right < s.length; ++right) {
-		while (set.has(s[right])) {
-			set.delete(s[left])
-			left++
-		}
+    for (let right = 0; right < s.length; ++right) {
+        while (set.has(s[right])) {
+            set.delete(s[left])
+            left++
+        }
 
-		set.add(s[right])
-		maxLen = Math.max(set.size, maxLen)
-	}
+        set.add(s[right])
+        maxLen = Math.max(set.size, maxLen)
+    }
 
-	return maxLen
+    return maxLen
 }
 
 console.log(lengthOfLongestSubstring('abcabcbb')) // 3

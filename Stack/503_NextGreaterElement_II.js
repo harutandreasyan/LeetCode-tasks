@@ -26,21 +26,21 @@
 /* Time - O(n), Space - O(n) */
 
 var nextGreaterElements = function (nums) {
-	const stack = []
-	const result = new Array(nums.length).fill(-1)
-	let n = nums.length
+    const stack = []
+    const result = new Array(nums.length).fill(-1)
+    let n = nums.length
 
-	for (let i = 0; i < 2 * n; ++i) {
-		let idx = i % n
-		while (stack.length && nums[stack.at(-1)] < nums[idx]) {
-			const top = stack.pop()
-			result[top] = nums[idx]
-		}
+    for (let i = 0; i < 2 * n; ++i) {
+        let idx = i % n
+        while (stack.length && nums[stack.at(-1)] < nums[idx]) {
+            const top = stack.pop()
+            result[top] = nums[idx]
+        }
 
-		if (i < n) stack.push(i)
-	}
+        if (i < n) stack.push(i)
+    }
 
-	return result
+    return result
 }
 
 console.log(nextGreaterElements([1, 2, 1])) // [ 2, -1, 2 ]

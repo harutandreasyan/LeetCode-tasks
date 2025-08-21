@@ -30,31 +30,31 @@
 /* Time - O(n), Space - O(n) */
 
 var frequencySort = function (s) {
-	const map = {}
-	let result = ''
+    const map = {}
+    let result = ''
 
-	for (let char of s) {
-		map[char] = (map[char] || 0) + 1
-	}
+    for (let char of s) {
+        map[char] = (map[char] || 0) + 1
+    }
 
-	let maxFrequency = 0
-	for (let current of Object.values(map)) {
-		if (current > maxFrequency) maxFrequency = current
-	}
+    let maxFrequency = 0
+    for (let current of Object.values(map)) {
+        if (current > maxFrequency) maxFrequency = current
+    }
 
-	const counts = Array.from({ length: maxFrequency + 1 }, () => [])
+    const counts = Array.from({ length: maxFrequency + 1 }, () => [])
 
-	for (let [char, freq] of Object.entries(map)) {
-		counts[freq].push(char)
-	}
+    for (let [char, freq] of Object.entries(map)) {
+        counts[freq].push(char)
+    }
 
-	for (let i = counts.length - 1; i > 0; --i) {
-		for (let char of counts[i]) {
-			result += char.repeat(i)
-		}
-	}
+    for (let i = counts.length - 1; i > 0; --i) {
+        for (let char of counts[i]) {
+            result += char.repeat(i)
+        }
+    }
 
-	return result
+    return result
 }
 
 console.log(frequencySort('tree')) // eetr

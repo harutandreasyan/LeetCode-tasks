@@ -16,16 +16,16 @@
 /* Time - O(1), Space - O(1) */
 
 var getSum = function (a, b) {
-	while (b !== 0) {
-		let sum = a ^ b
+    while (b !== 0) {
+        let sum = a ^ b
 
-		let carry = (a & b) << 1
+        let carry = (a & b) << 1
 
-		a = sum
-		b = carry
-	}
+        a = sum
+        b = carry
+    }
 
-	return a
+    return a
 }
 
 console.log(getSum(1, 2)) // 3

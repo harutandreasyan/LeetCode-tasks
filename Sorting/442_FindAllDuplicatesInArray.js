@@ -27,26 +27,26 @@
 /* Time - O(N) Space - O(1) */
 
 var findDuplicates = function (nums) {
-	const result = []
+    const result = []
 
-	let i = 0
-	while (i < nums.length) {
-		const idx = nums[i] - 1
+    let i = 0
+    while (i < nums.length) {
+        const idx = nums[i] - 1
 
-		if (nums[i] !== nums[idx]) {
-			;[nums[i], nums[idx]] = [nums[idx], nums[i]]
-		} else {
-			++i
-		}
-	}
+        if (nums[i] !== nums[idx]) {
+            ;[nums[i], nums[idx]] = [nums[idx], nums[i]]
+        } else {
+            ++i
+        }
+    }
 
-	for (let i = 0; i < nums.length; ++i) {
-		if (nums[i] !== i + 1) {
-			result.push(nums[i])
-		}
-	}
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] !== i + 1) {
+            result.push(nums[i])
+        }
+    }
 
-	return result
+    return result
 }
 
 console.log(findDuplicates([4, 3, 2, 7, 8, 2, 3, 1])) // [ 3, 2 ]

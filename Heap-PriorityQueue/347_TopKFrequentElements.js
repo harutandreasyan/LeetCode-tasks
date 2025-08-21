@@ -23,61 +23,61 @@
 /* Time - O(n log k), Space - O(n) */
 
 var topKFrequent = function (nums, k) {
-	const map = {}
-	const heap = []
+    const map = {}
+    const heap = []
 
-	for (let num of nums) {
-		map[num] = (map[num] || 0) + 1
-	}
+    for (let num of nums) {
+        map[num] = (map[num] || 0) + 1
+    }
 
-	for (const entry in map) {
-		heap.push([entry, map[entry]])
-		heapifyUp(heap, heap.length - 1)
+    for (const entry in map) {
+        heap.push([entry, map[entry]])
+        heapifyUp(heap, heap.length - 1)
 
-		if (heap.length > k) {
-			swap(heap, 0, heap.length - 1)
-			heap.pop()
-			heapifyDown(heap, 0)
-		}
-	}
+        if (heap.length > k) {
+            swap(heap, 0, heap.length - 1)
+            heap.pop()
+            heapifyDown(heap, 0)
+        }
+    }
 
     const result = []
 
     while(heap.length) {
         result.push(+heap.pop()[0])
     }
-	
+    
     return result
 }
 
 function heapifyUp(arr, idx) {
-	let parent = Math.floor((idx - 1) / 2)
-	if (parent >= 0 && arr[idx][1] < arr[parent][1]) {
-		swap(arr, idx, parent)
-		heapifyUp(arr, parent)
-	}
+    let parent = Math.floor((idx - 1) / 2)
+    if (parent >= 0 && arr[idx][1] < arr[parent][1]) {
+        swap(arr, idx, parent)
+        heapifyUp(arr, parent)
+    }
 }
 
 function swap(arr, i, j) {
-	;[arr[i], arr[j]] = [arr[j], arr[i]]
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
 }
 
 function heapifyDown(arr, idx) {
-	let smallest = idx
-	const left = 2 * idx + 1
-	const right = 2 * idx + 2
+    let smallest = idx
+    const left = 2 * idx + 1
+    const right = 2 * idx + 2
 
-	if (left < arr.length && arr[left][1] < arr[smallest][1]) {
-		smallest = left
-	}
-	if (right < arr.length && arr[right][1] < arr[smallest][1]) {
-		smallest = right
-	}
+    if (left < arr.length && arr[left][1] < arr[smallest][1]) {
+        smallest = left
+    }
+    if (right < arr.length && arr[right][1] < arr[smallest][1]) {
+        smallest = right
+    }
 
-	if (smallest !== idx) {
-		swap(arr, idx, smallest)
-		heapifyDown(arr, smallest)
-	}
+    if (smallest !== idx) {
+        swap(arr, idx, smallest)
+        heapifyDown(arr, smallest)
+    }
 }
 
 console.log(topKFrequent([1, 1, 1, 2, 2, 3], 2)) // [ 1, 2 ]

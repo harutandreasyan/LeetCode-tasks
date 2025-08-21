@@ -28,24 +28,24 @@
 /* Time - O(N) Space - O(1) */
 
 var firstMissingPositive = function (nums) {
-	for (let i = 0; i < nums.length; ++i) {
-		while (
-			nums[i] > 0 &&
-			nums[i] <= nums.length &&
-			nums[nums[i] - 1] !== nums[i]
-		) {
-			let index = nums[i] - 1
-			;[nums[index], nums[i]] = [nums[i], nums[index]]
-		}
-	}
+    for (let i = 0; i < nums.length; ++i) {
+        while (
+            nums[i] > 0 &&
+            nums[i] <= nums.length &&
+            nums[nums[i] - 1] !== nums[i]
+        ) {
+            let index = nums[i] - 1
+            ;[nums[index], nums[i]] = [nums[i], nums[index]]
+        }
+    }
 
-	for (let i = 0; i < nums.length; ++i) {
-		if (nums[i] !== i + 1) {
-			return i + 1
-		}
-	}
+    for (let i = 0; i < nums.length; ++i) {
+        if (nums[i] !== i + 1) {
+            return i + 1
+        }
+    }
 
-	return nums.length + 1
+    return nums.length + 1
 }
 
 console.log(firstMissingPositive([1, 2, 0])) // 3

@@ -37,41 +37,41 @@
 /* Time - O(n + k log n), Space - O(1) */
 
 var minStoneSum = function (piles, k) {
-	const parentsCount = Math.floor(piles.length / 2) - 1
-	for (let i = parentsCount; i >= 0; --i) {
-		heapifyDown(piles, i)
-	}
+    const parentsCount = Math.floor(piles.length / 2) - 1
+    for (let i = parentsCount; i >= 0; --i) {
+        heapifyDown(piles, i)
+    }
 
-	while (k) {
-		piles[0] = Math.ceil(piles[0] / 2)
-		heapifyDown(piles, 0)
-		k--
-	}
+    while (k) {
+        piles[0] = Math.ceil(piles[0] / 2)
+        heapifyDown(piles, 0)
+        k--
+    }
 
-	let overallStones = piles.reduce((a, b) => a + b, 0)
-	return overallStones
+    let overallStones = piles.reduce((a, b) => a + b, 0)
+    return overallStones
 }
 
 function heapifyDown(arr, idx) {
-	let largest = idx
-	const left = 2 * idx + 1
-	const right = 2 * idx + 2
+    let largest = idx
+    const left = 2 * idx + 1
+    const right = 2 * idx + 2
 
-	if (left < arr.length && arr[left] > arr[largest]) {
-		largest = left
-	}
-	if (right < arr.length && arr[right] > arr[largest]) {
-		largest = right
-	}
+    if (left < arr.length && arr[left] > arr[largest]) {
+        largest = left
+    }
+    if (right < arr.length && arr[right] > arr[largest]) {
+        largest = right
+    }
 
-	if (largest !== idx) {
-		swap(arr, idx, largest)
-		heapifyDown(arr, largest)
-	}
+    if (largest !== idx) {
+        swap(arr, idx, largest)
+        heapifyDown(arr, largest)
+    }
 }
 
 function swap(arr, i, j) {
-	;[arr[i], arr[j]] = [arr[j], arr[i]]
+    ;[arr[i], arr[j]] = [arr[j], arr[i]]
 }
 
 console.log(minStoneSum([5, 4, 9], 2)) // 12

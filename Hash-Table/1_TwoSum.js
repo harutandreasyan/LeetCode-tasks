@@ -32,14 +32,14 @@
 /* Time - O(n), Space - O(n) */
 
 var twoSum = function (nums, target) {
-	let cache = {}
-	for (let i = 0; i < nums.length; ++i) {
-		let diff = target - nums[i]
-		if (nums[i] in cache) {
-			return [cache[nums[i]], i]
-		}
-		cache[diff] = i
-	}
+    let cache = {}
+    for (let i = 0; i < nums.length; ++i) {
+        let diff = target - nums[i]
+        if (nums[i] in cache) {
+            return [cache[nums[i]], i]
+        }
+        cache[diff] = i
+    }
 }
 
 console.log(twoSum([2, 7, 11, 15], 9)) // [ 0, 1 ]

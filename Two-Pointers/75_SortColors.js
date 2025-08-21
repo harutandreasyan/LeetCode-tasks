@@ -16,32 +16,32 @@
     Input: nums = [2,0,1]
     Output: [0,1,2]
 
-	Constraints:
-		n == nums.length
-		1 <= n <= 300
-		nums[i] is either 0, 1, or 2.
+    Constraints:
+        n == nums.length
+        1 <= n <= 300
+        nums[i] is either 0, 1, or 2.
 */
 
 /* Using Dutch National Flag algorithm */
 /* Time - O(N) Space - O(1) */
 
 var sortColors = function (nums) {
-	let left = 0
-	let right = nums.length - 1
-	let current = 0
+    let left = 0
+    let right = nums.length - 1
+    let current = 0
 
-	while (current <= right) {
-		if (nums[current] === 0) {
-			;[nums[left], nums[current]] = [nums[current], nums[left]]
-			left++
-			current++
-		} else if (nums[current] === 2) {
-			;[nums[right], nums[current]] = [nums[current], nums[right]]
-			right--
-		} else {
-			current++
-		}
-	}
+    while (current <= right) {
+        if (nums[current] === 0) {
+            ;[nums[left], nums[current]] = [nums[current], nums[left]]
+            left++
+            current++
+        } else if (nums[current] === 2) {
+            ;[nums[right], nums[current]] = [nums[current], nums[right]]
+            right--
+        } else {
+            current++
+        }
+    }
 }
 
 let nums = [2, 0, 2, 1, 1, 0]

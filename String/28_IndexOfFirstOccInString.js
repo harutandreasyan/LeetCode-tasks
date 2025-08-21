@@ -12,32 +12,32 @@
     Output: -1
     Explanation: "leeto" did not occur in "leetcode", so we return -1.
 
-	Constraints:
-		1 <= haystack.length, needle.length <= 10^4
+    Constraints:
+        1 <= haystack.length, needle.length <= 10^4
 */
 
 /* Time - O(n * m), Space - O(1) */
 
 var strStr = function (haystack, needle) {
-	if (needle === '') return 0
+    if (needle === '') return 0
 
-	let n = haystack.length
-	let m = needle.length
+    let n = haystack.length
+    let m = needle.length
 
-	if (m > n) return -1
+    if (m > n) return -1
 
-	for (let i = 0; i <= n - m; i++) {
-		let found = true
-		for (let j = 0; j < m; j++) {
-			if (haystack[i + j] !== needle[j]) {
-				found = false
-				break
-			}
-		}
+    for (let i = 0; i <= n - m; i++) {
+        let found = true
+        for (let j = 0; j < m; j++) {
+            if (haystack[i + j] !== needle[j]) {
+                found = false
+                break
+            }
+        }
 
-		if (found) return i
-	}
-	return -1
+        if (found) return i
+    }
+    return -1
 }
 
 console.log(strStr('sadbutsad', 'sad')) // 0

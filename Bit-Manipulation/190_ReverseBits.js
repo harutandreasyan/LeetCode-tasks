@@ -23,16 +23,16 @@
 /* Time - O(1), Space - O(1) */
 
 var reverseBits = function (n) {
-	let result = 0
-	let i = 0
+    let result = 0
+    let i = 0
 
-	while (i < 32) {
-		result |= (n & 1) << (31 - i)
-		++i
-		n >>= 1
-	}
+    while (i < 32) {
+        result |= (n & 1) << (31 - i)
+        ++i
+        n >>= 1
+    }
 
-	return result >>> 0
+    return result >>> 0
 }
 
 console.log(reverseBits(0b00000010100101000001111010011100)) // 964176192

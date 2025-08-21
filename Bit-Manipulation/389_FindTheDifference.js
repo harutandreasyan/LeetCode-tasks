@@ -23,18 +23,18 @@
 /* Using bit manipulation(XOR), optimal: time-O(n), space-O(1)*/
 
 var findTheDifference = function (s, t) {
-	if (s.length === 0) return t
-	let res = 0
+    if (s.length === 0) return t
+    let res = 0
 
-	for (let i = 0; i < s.length; i++) {
-		res ^= s.charCodeAt(i)
-	}
+    for (let i = 0; i < s.length; i++) {
+        res ^= s.charCodeAt(i)
+    }
 
-	for (let i = 0; i < t.length; i++) {
-		res ^= t.charCodeAt(i)
-	}
+    for (let i = 0; i < t.length; i++) {
+        res ^= t.charCodeAt(i)
+    }
 
-	return String.fromCharCode(res)
+    return String.fromCharCode(res)
 }
 
 console.log(findTheDifference('abcd', 'abcde')) // e

@@ -16,31 +16,31 @@
     Input: nums = [2,0,1]
     Output: [0,1,2]
 
-	Constraints:
-		n == nums.length
-		1 <= n <= 300
-		nums[i] is either 0, 1, or 2.
+    Constraints:
+        n == nums.length
+        1 <= n <= 300
+        nums[i] is either 0, 1, or 2.
 */
 
 /* Using Counting Sort */
 /* Time - O(N) Space - O(1) */
 
 var sortColors = function (nums) {
-	const counts = [0, 0, 0]
+    const counts = [0, 0, 0]
 
-	for (let num of nums) {
-		counts[num]++
-	}
+    for (let num of nums) {
+        counts[num]++
+    }
 
-	let j = 0
+    let j = 0
 
-	for (let i = 0; i < counts.length; ++i) {
-		while (counts[i]--) {
-			nums[j++] = i
-		}
-	}
+    for (let i = 0; i < counts.length; ++i) {
+        while (counts[i]--) {
+            nums[j++] = i
+        }
+    }
 
-	return nums
+    return nums
 }
 
 let nums = [2, 0, 2, 1, 1, 0]

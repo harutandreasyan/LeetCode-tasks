@@ -29,23 +29,23 @@
 /* Time - O(log n), Space - O(1) */
 
 var isPowerOfTwo = function (n) {
-	if (n <= 0) return false
-	let count = 0
-	while (n !== 0) {
-		if (n & 1) {
-			++count
-		}
-		n >>= 1
-	}
-	return count === 1
+    if (n <= 0) return false
+    let count = 0
+    while (n !== 0) {
+        if (n & 1) {
+            ++count
+        }
+        n >>= 1
+    }
+    return count === 1
 }
 
 /* 2. Without loop, optimal solution */
 /* Time - O(1), Space - O(1) */
 
 var isPowerOfTwo = function (n) {
-	if (n <= 0) return false
-	return (n & (n - 1)) === 0
+    if (n <= 0) return false
+    return (n & (n - 1)) === 0
 }
 
 console.log(isPowerOfTwo(1)) // true

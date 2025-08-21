@@ -23,19 +23,19 @@
 /* Time-O(n), Space-O(1) */
 
 var findTheDifference = function (s, t) {
-	if (s.length === 0) return t
-	let sumOfs = 0
-	let sumOft = 0
+    if (s.length === 0) return t
+    let sumOfs = 0
+    let sumOft = 0
 
-	for (let i = 0; i < s.length; ++i) {
-		sumOfs += s.charCodeAt(i)
-	}
+    for (let i = 0; i < s.length; ++i) {
+        sumOfs += s.charCodeAt(i)
+    }
 
-	for (let i = 0; i < t.length; ++i) {
-		sumOft += t.charCodeAt(i)
-	}
+    for (let i = 0; i < t.length; ++i) {
+        sumOft += t.charCodeAt(i)
+    }
 
-	return String.fromCharCode(sumOft - sumOfs)
+    return String.fromCharCode(sumOft - sumOfs)
 }
 
 console.log(findTheDifference('abcd', 'abcde')) // e

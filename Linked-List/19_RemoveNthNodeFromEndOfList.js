@@ -32,21 +32,21 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var removeNthFromEnd = function (head, n) {
-	let dummy = { next: head }
-	let slow = dummy
-	let fast = dummy
+    let dummy = { next: head }
+    let slow = dummy
+    let fast = dummy
 
-	for (let i = 0; i <= n; ++i) {
-		fast = fast.next
-	}
+    for (let i = 0; i <= n; ++i) {
+        fast = fast.next
+    }
 
-	while (fast) {
-		fast = fast.next
-		slow = slow.next
-	}
+    while (fast) {
+        fast = fast.next
+        slow = slow.next
+    }
 
-	slow.next = slow.next.next
-	return dummy.next
+    slow.next = slow.next.next
+    return dummy.next
 }
 
 let head1 = createLinkedList([1, 2, 3, 4, 5])

@@ -26,27 +26,27 @@
 /* Time - O(log n), Space - O(1) */
 
 var isPalindrome = function (x) {
-	if (x < 0 || (x % 10 === 0 && x !== 0)) return false
+    if (x < 0 || (x % 10 === 0 && x !== 0)) return false
 
-	let reversed = 0
-	while (x > reversed) {
-		reversed = reversed * 10 + (x % 10)
-		x = Math.floor(x / 10)
-	}
+    let reversed = 0
+    while (x > reversed) {
+        reversed = reversed * 10 + (x % 10)
+        x = Math.floor(x / 10)
+    }
 
-	return x === reversed || x === Math.floor(reversed / 10)
+    return x === reversed || x === Math.floor(reversed / 10)
 }
 /* 2. With converting the integer to a string */
 /* Time - O(N), Space - O(N) */
 
 var isPalindrome = function (x) {
-	x = String(x)
-	let N = x.length
-	let half = Math.floor(N / 2)
-	for (let i = 0; i < half; ++i) {
-		if (x[i] !== x[N - 1 - i]) return false
-	}
-	return true
+    x = String(x)
+    let N = x.length
+    let half = Math.floor(N / 2)
+    for (let i = 0; i < half; ++i) {
+        if (x[i] !== x[N - 1 - i]) return false
+    }
+    return true
 }
 
 console.log(isPalindrome(121)) // true

@@ -19,37 +19,37 @@
     Output: 2
     Explanation: "lee", "eet" and "ode" contain 2 vowels.
 
-	Constraints:
-		1 <= s.length <= 10^5
-		s consists of lowercase English letters.
-		1 <= k <= s.length
+    Constraints:
+        1 <= s.length <= 10^5
+        s consists of lowercase English letters.
+        1 <= k <= s.length
 */
 
 /* Time - O(n), Space - O(1) */
 
 var maxVowels = function (s, k) {
-	const vowels = new Set(['a', 'e', 'i', 'o', 'u'])
-	let maxVowelCount = 0
-	let currentVowelCount = 0
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u'])
+    let maxVowelCount = 0
+    let currentVowelCount = 0
 
-	for (let i = 0; i < k; i++) {
-		if (vowels.has(s[i])) {
-			currentVowelCount++
-		}
-	}
-	maxVowelCount = currentVowelCount
+    for (let i = 0; i < k; i++) {
+        if (vowels.has(s[i])) {
+            currentVowelCount++
+        }
+    }
+    maxVowelCount = currentVowelCount
 
-	for (let i = k; i < s.length; i++) {
-		if (vowels.has(s[i - k])) {
-			currentVowelCount--
-		}
-		if (vowels.has(s[i])) {
-			currentVowelCount++
-		}
-		maxVowelCount = Math.max(maxVowelCount, currentVowelCount)
-	}
+    for (let i = k; i < s.length; i++) {
+        if (vowels.has(s[i - k])) {
+            currentVowelCount--
+        }
+        if (vowels.has(s[i])) {
+            currentVowelCount++
+        }
+        maxVowelCount = Math.max(maxVowelCount, currentVowelCount)
+    }
 
-	return maxVowelCount
+    return maxVowelCount
 }
 
 console.log(maxVowels('abciiidef', 3)) //  3

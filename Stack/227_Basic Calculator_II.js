@@ -32,32 +32,32 @@
 /* Time - O(n), Space - O(n) */
 
 var calculate = function (s) {
-	const stack = []
-	let currentNum = 0
-	let action = '+'
+    const stack = []
+    let currentNum = 0
+    let action = '+'
 
-	for (let i = 0; i < s.length; ++i) {
-		if (!isNaN(s[i]) && s[i] !== ' ') {
-			currentNum = currentNum * 10 + Number(s[i])
-		}
+    for (let i = 0; i < s.length; ++i) {
+        if (!isNaN(s[i]) && s[i] !== ' ') {
+            currentNum = currentNum * 10 + Number(s[i])
+        }
 
-		if ((isNaN(s[i]) && s[i] !== ' ') || i === s.length - 1) {
-			if (action === '+') {
-				stack.push(currentNum)
-			} else if (action === '-') {
-				stack.push(-currentNum)
-			} else if (action === '*') {
-				stack.push(stack.pop() * currentNum)
-			} else if (action === '/') {
-				stack.push(Math.trunc(stack.pop() / currentNum))
-			}
+        if ((isNaN(s[i]) && s[i] !== ' ') || i === s.length - 1) {
+            if (action === '+') {
+                stack.push(currentNum)
+            } else if (action === '-') {
+                stack.push(-currentNum)
+            } else if (action === '*') {
+                stack.push(stack.pop() * currentNum)
+            } else if (action === '/') {
+                stack.push(Math.trunc(stack.pop() / currentNum))
+            }
 
-			action = s[i]
-			currentNum = 0
-		}
-	}
+            action = s[i]
+            currentNum = 0
+        }
+    }
 
-	return stack.reduce((a, b) => a + b)
+    return stack.reduce((a, b) => a + b)
 }
 
 console.log(calculate('3+2*2')) // 7

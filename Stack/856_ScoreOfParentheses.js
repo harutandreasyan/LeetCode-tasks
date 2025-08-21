@@ -28,28 +28,28 @@
 /* Time - O(n), Space - O(n) */
 
 var scoreOfParentheses = function (s) {
-	const stack = []
+    const stack = []
 
-	for (let char of s) {
-		if (char === '(') {
-			stack.push('(')
-		} else {
-			let score = 0
+    for (let char of s) {
+        if (char === '(') {
+            stack.push('(')
+        } else {
+            let score = 0
 
-			while (stack.length && stack[stack.length - 1] !== '(') {
-				score += stack.pop()
-			}
+            while (stack.length && stack[stack.length - 1] !== '(') {
+                score += stack.pop()
+            }
 
-			stack.pop()
+            stack.pop()
 
-			if (score === 0) {
-				stack.push(1)
-			} else {
-				stack.push(2 * score)
-			}
-		}
-	}
-	return stack.reduce((a, b) => a + b, 0)
+            if (score === 0) {
+                stack.push(1)
+            } else {
+                stack.push(2 * score)
+            }
+        }
+    }
+    return stack.reduce((a, b) => a + b, 0)
 }
 
 console.log(scoreOfParentheses('()')) // 1

@@ -24,15 +24,15 @@
 /* Time - O(n), Space - O(1) */
 
 var canJump = function (nums) {
-	let targetIndex = nums.length - 1
+    let targetIndex = nums.length - 1
 
-	for (let prevIndex = nums.length - 2; prevIndex >= 0; prevIndex--) {
-		if (prevIndex + nums[prevIndex] >= targetIndex) {
-			targetIndex = prevIndex
-		}
-	}
+    for (let prevIndex = nums.length - 2; prevIndex >= 0; prevIndex--) {
+        if (prevIndex + nums[prevIndex] >= targetIndex) {
+            targetIndex = prevIndex
+        }
+    }
 
-	return targetIndex === 0
+    return targetIndex === 0
 }
 
 console.log(canJump([2, 3, 1, 1, 4])) // true

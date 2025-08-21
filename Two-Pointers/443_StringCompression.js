@@ -38,32 +38,32 @@
 /* Time - O(n), Space - O(1) */
 
 var compress = function (chars) {
-	let write = 0
-	let read = 0
+    let write = 0
+    let read = 0
 
-	while (read < chars.length) {
-		let char = chars[read]
-		let start = read
+    while (read < chars.length) {
+        let char = chars[read]
+        let start = read
 
-		while (read < chars.length && chars[read] === char) {
-			read++
-		}
+        while (read < chars.length && chars[read] === char) {
+            read++
+        }
 
-		chars[write++] = char
+        chars[write++] = char
 
-		let count = read - start
-		if (count > 1) {
-			for (let digit of String(count)) {
-				chars[write++] = digit
-			}
-		}
-	}
+        let count = read - start
+        if (count > 1) {
+            for (let digit of String(count)) {
+                chars[write++] = digit
+            }
+        }
+    }
 
-	return write
+    return write
 }
 
 console.log(compress(['a', 'a', 'b', 'b', 'c', 'c', 'c'])) // 6
 console.log(compress(['a'])) // 1
 console.log(
-	compress(['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'])
+    compress(['a', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b', 'b'])
 ) // 4

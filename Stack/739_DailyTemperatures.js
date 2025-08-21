@@ -25,22 +25,22 @@
 /* Time - O(n), Space - O(n) */
 
 var dailyTemperatures = function (temperatures) {
-	const stack = []
-	const n = temperatures.length
-	const result = new Array(n).fill(0)
+    const stack = []
+    const n = temperatures.length
+    const result = new Array(n).fill(0)
 
-	for (let i = 0; i < n; ++i) {
-		while (stack.length && temperatures[stack.at(-1)] < temperatures[i]) {
-			const top = stack.pop()
-			result[top] = i - top
-		}
+    for (let i = 0; i < n; ++i) {
+        while (stack.length && temperatures[stack.at(-1)] < temperatures[i]) {
+            const top = stack.pop()
+            result[top] = i - top
+        }
 
-		if (i < n) {
-			stack.push(i)
-		}
-	}
+        if (i < n) {
+            stack.push(i)
+        }
+    }
 
-	return result
+    return result
 }
 
 console.log(dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])) // [ 1, 1, 4, 2, 1, 1, 0, 0 ]

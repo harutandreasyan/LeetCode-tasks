@@ -40,36 +40,36 @@
 /* Time - O(n), Space - O(n) */
 
 var evalRPN = function (tokens) {
-	const stack = []
+    const stack = []
 
-	for (let token of tokens) {
-		if (!isNaN(token)) {
-			stack.push(Number(token))
-		} else {
-			const secondOperand = stack.pop()
-			const firstOperand = stack.pop()
-			switch (token) {
-				case '+':
-					stack.push(firstOperand + secondOperand)
-					break
-				case '-':
-					stack.push(firstOperand - secondOperand)
-					break
-				case '*':
-					stack.push(firstOperand * secondOperand)
-					break
-				case '/':
-					stack.push(Math.trunc(firstOperand / secondOperand))
-					break
-			}
-		}
-	}
+    for (let token of tokens) {
+        if (!isNaN(token)) {
+            stack.push(Number(token))
+        } else {
+            const secondOperand = stack.pop()
+            const firstOperand = stack.pop()
+            switch (token) {
+                case '+':
+                    stack.push(firstOperand + secondOperand)
+                    break
+                case '-':
+                    stack.push(firstOperand - secondOperand)
+                    break
+                case '*':
+                    stack.push(firstOperand * secondOperand)
+                    break
+                case '/':
+                    stack.push(Math.trunc(firstOperand / secondOperand))
+                    break
+            }
+        }
+    }
 
-	return stack[0]
+    return stack[0]
 }
 
 console.log(evalRPN(['2', '1', '+', '3', '*'])) // 9
 console.log(evalRPN(['4', '13', '5', '/', '+'])) // 6
 console.log(
-	evalRPN(['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+'])
+    evalRPN(['10', '6', '9', '3', '+', '-11', '*', '/', '*', '17', '+', '5', '+'])
 ) // 22

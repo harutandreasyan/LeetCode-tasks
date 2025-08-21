@@ -31,22 +31,22 @@
 /* Time - O(n), Space - O(n) */
 
 var smallerNumbersThanCurrent = function (nums) {
-	const result = []
-	const counts = new Array(100).fill(0)
+    const result = []
+    const counts = new Array(100).fill(0)
 
-	for (let num of nums) {
-		counts[num]++
-	}
+    for (let num of nums) {
+        counts[num]++
+    }
 
-	for (let i = 1; i < counts.length; ++i) {
-		counts[i] += counts[i - 1]
-	}
+    for (let i = 1; i < counts.length; ++i) {
+        counts[i] += counts[i - 1]
+    }
 
-	for (let i = 0; i < nums.length; ++i) {
-		result[i] = nums[i] === 0 ? 0 : counts[nums[i] - 1]
-	}
+    for (let i = 0; i < nums.length; ++i) {
+        result[i] = nums[i] === 0 ? 0 : counts[nums[i] - 1]
+    }
 
-	return result
+    return result
 }
 
 console.log(smallerNumbersThanCurrent([8, 1, 2, 2, 3])) // [ 4, 0, 1, 1, 3 ]

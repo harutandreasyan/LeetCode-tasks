@@ -29,26 +29,26 @@
 /* Time - O(n), Space - O(n) */
 
 var decodeString = function (s) {
-	const stack = []
-	let currentNum = 0
-	let currentText = ''
+    const stack = []
+    let currentNum = 0
+    let currentText = ''
 
-	for (char of s) {
-		if (!isNaN(char)) {
-			currentNum = currentNum * 10 + Number(char)
-		} else if (char === '[') {
-			stack.push([currentText, currentNum])
-			currentText = ''
-			currentNum = 0
-		} else if (char === ']') {
-			const [prev, count] = stack.pop()
-			currentText = prev + currentText.repeat(count)
-		} else {
-			currentText += char
-		}
-	}
+    for (char of s) {
+        if (!isNaN(char)) {
+            currentNum = currentNum * 10 + Number(char)
+        } else if (char === '[') {
+            stack.push([currentText, currentNum])
+            currentText = ''
+            currentNum = 0
+        } else if (char === ']') {
+            const [prev, count] = stack.pop()
+            currentText = prev + currentText.repeat(count)
+        } else {
+            currentText += char
+        }
+    }
 
-	return currentText
+    return currentText
 }
 
 console.log(decodeString('3[a]2[bc]')) // aaabcbc

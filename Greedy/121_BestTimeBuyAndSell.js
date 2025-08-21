@@ -25,24 +25,24 @@
 /* Time - O(n), Space - O(1) */
 
 var maxProfit = function (prices) {
-	if (prices.length < 2) return 0
+    if (prices.length < 2) return 0
 
-	let minPrice = prices[0]
-	let maxProf = 0
+    let minPrice = prices[0]
+    let maxProf = 0
 
-	for (let i = 1; i < prices.length; ++i) {
-		if (prices[i] < minPrice) {
-			minPrice = prices[i]
-		}
+    for (let i = 1; i < prices.length; ++i) {
+        if (prices[i] < minPrice) {
+            minPrice = prices[i]
+        }
 
-		let currentProf = prices[i] - minPrice
+        let currentProf = prices[i] - minPrice
 
-		if (currentProf > maxProf) {
-			maxProf = currentProf
-		}
-	}
+        if (currentProf > maxProf) {
+            maxProf = currentProf
+        }
+    }
 
-	return maxProf
+    return maxProf
 }
 
 console.log(maxProfit([7, 1, 5, 3, 6, 4])) // 5

@@ -33,19 +33,19 @@
 /* Time - O(N), Space - O(1) */
 
 var missingNumber = function (nums) {
-	let len = nums.length
-	let sum1 = 0
-	let sum2 = 0
+    let len = nums.length
+    let sum1 = 0
+    let sum2 = 0
 
-	for (let i = 0; i <= len; ++i) {
-		sum1 += i
-	}
+    for (let i = 0; i <= len; ++i) {
+        sum1 += i
+    }
 
-	for (let i = 0; i < len; ++i) {
-		sum2 += nums[i]
-	}
+    for (let i = 0; i < len; ++i) {
+        sum2 += nums[i]
+    }
 
-	return sum1 - sum2
+    return sum1 - sum2
 }
 
 /*  
@@ -56,15 +56,15 @@ var missingNumber = function (nums) {
 
 /* Time - O(N), Space - O(1) */
 var missingNumber = function (nums) {
-	let maxElem = nums.length
-	let sumOfN = Math.floor((maxElem ** 2 + maxElem) / 2)
-	let sumOfActual = nums[0]
+    let maxElem = nums.length
+    let sumOfN = Math.floor((maxElem ** 2 + maxElem) / 2)
+    let sumOfActual = nums[0]
 
-	for (let i = 1; i < nums.length; ++i) {
-		sumOfActual += nums[i]
-	}
+    for (let i = 1; i < nums.length; ++i) {
+        sumOfActual += nums[i]
+    }
 
-	return sumOfN - sumOfActual
+    return sumOfN - sumOfActual
 }
 
 console.log(missingNumber([3, 0, 1])) // 2

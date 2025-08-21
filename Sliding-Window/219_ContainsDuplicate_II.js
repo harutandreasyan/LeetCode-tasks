@@ -23,19 +23,19 @@
 /* Time - O(n), Space - O(k) */
 
 var containsNearbyDuplicate = function (nums, k) {
-	const set = new Set()
+    const set = new Set()
 
-	for (let i = 0; i < nums.length; i++) {
-		if (set.has(nums[i])) return true
+    for (let i = 0; i < nums.length; i++) {
+        if (set.has(nums[i])) return true
 
-		set.add(nums[i])
+        set.add(nums[i])
 
-		if (set.size > k) {
-			set.delete(nums[i - k])
-		}
-	}
+        if (set.size > k) {
+            set.delete(nums[i - k])
+        }
+    }
 
-	return false
+    return false
 }
 
 console.log(containsNearbyDuplicate([1, 2, 3, 1], 3)) // true

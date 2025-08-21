@@ -26,23 +26,23 @@ import { createLinkedList, linkedListToArray } from "../Linked-List/helpers.js"
 /* Time - O(n^2), Space - O(1) */
 
 var insertionSortList = function (head) {
-	let dummy = { next: null }
-	let current = head
-	while (current) {
-		let prev = dummy
-		let next = current.next
+    let dummy = { next: null }
+    let current = head
+    while (current) {
+        let prev = dummy
+        let next = current.next
 
-		while (prev.next && prev.next.val <= current.val) {
-			prev = prev.next
-		}
+        while (prev.next && prev.next.val <= current.val) {
+            prev = prev.next
+        }
 
-		current.next = prev.next
-		prev.next = current
+        current.next = prev.next
+        prev.next = current
 
-		current = next
-	}
+        current = next
+    }
 
-	return dummy.next
+    return dummy.next
 }
 
 let head1 = createLinkedList([4, 2, 1, 3])

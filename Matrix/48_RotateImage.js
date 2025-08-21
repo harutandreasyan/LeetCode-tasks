@@ -26,32 +26,32 @@
 /* Time - O(n^2), Space - O(1) */
 
 var rotate = function (matrix) {
-	const n = matrix.length
+    const n = matrix.length
 
-	for (let i = 0; i < n; i++) {
-		for (let j = i + 1; j < n; j++) {
-			;[matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
-		}
-	}
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            ;[matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]]
+        }
+    }
 
-	for (let i = 0; i < n; i++) {
-		matrix[i].reverse()
-	}
+    for (let i = 0; i < n; i++) {
+        matrix[i].reverse()
+    }
 
-	return matrix
+    return matrix
 }
 
 const matrix3x3 = [
-	[1, 2, 3],
-	[4, 5, 6],
-	[7, 8, 9],
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
 ]
 console.log(rotate(matrix3x3))
 
 const matrix4x4 = [
-	[5, 1, 9, 11],
-	[2, 4, 8, 10],
-	[13, 3, 6, 7],
-	[15, 14, 12, 16],
+    [5, 1, 9, 11],
+    [2, 4, 8, 10],
+    [13, 3, 6, 7],
+    [15, 14, 12, 16],
 ]
 console.log(rotate(matrix4x4))

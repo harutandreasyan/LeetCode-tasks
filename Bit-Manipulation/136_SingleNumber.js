@@ -24,12 +24,12 @@
 /* Time - O(n), Space - O(1) */
 
 var singleNumber = function (nums) {
-	let single = nums[0]
-	for (let i = 1; i < nums.length; ++i) {
-		single ^= nums[i]
-	}
+    let single = nums[0]
+    for (let i = 1; i < nums.length; ++i) {
+        single ^= nums[i]
+    }
 
-	return single
+    return single
 }
 
 console.log(singleNumber([2, 2, 1])) // 1

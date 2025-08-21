@@ -30,24 +30,24 @@
 /* Time - O(n), Space - O(1) */
 
 var longestMountain = function (arr) {
-	let max = 0
-	for (let i = 1; i < arr.length - 1; ++i) {
-		if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
-			let left = i - 1
-			let right = i + 1
+    let max = 0
+    for (let i = 1; i < arr.length - 1; ++i) {
+        if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+            let left = i - 1
+            let right = i + 1
 
-			while (left > 0 && arr[left] > arr[left - 1]) {
-				--left
-			}
-			while (right < arr.length - 1 && arr[right] > arr[right + 1]) {
-				++right
-			}
+            while (left > 0 && arr[left] > arr[left - 1]) {
+                --left
+            }
+            while (right < arr.length - 1 && arr[right] > arr[right + 1]) {
+                ++right
+            }
 
-			max = Math.max(right - left + 1, max)
-		}
-	}
+            max = Math.max(right - left + 1, max)
+        }
+    }
 
-	return max
+    return max
 }
 
 console.log(longestMountain([2, 1, 4, 7, 3, 2, 5])) // 5

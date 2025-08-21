@@ -21,38 +21,38 @@ import { createLinkedList } from './helpers.js'
 /* Time - O(n), Space - O(1) */
 
 var isPalindrome = function (head) {
-	if (!head || !head.next) return true
-	let fast = head
-	let slow = head
+    if (!head || !head.next) return true
+    let fast = head
+    let slow = head
 
-	while (fast && fast.next) {
-		fast = fast.next.next
-		slow = slow.next
-	}
+    while (fast && fast.next) {
+        fast = fast.next.next
+        slow = slow.next
+    }
 
-	let reversed = reverse(slow)
+    let reversed = reverse(slow)
 
-	while (reversed) {
-		if (reversed.val !== head.val) return false
-		reversed = reversed.next
-		head = head.next
-	}
+    while (reversed) {
+        if (reversed.val !== head.val) return false
+        reversed = reversed.next
+        head = head.next
+    }
 
-	return true
+    return true
 
-	function reverse(head) {
-		let prev = null
-		let current = head
+    function reverse(head) {
+        let prev = null
+        let current = head
 
-		while (current) {
-			let temp = current.next
-			current.next = prev
-			prev = current
-			current = temp
-		}
+        while (current) {
+            let temp = current.next
+            current.next = prev
+            prev = current
+            current = temp
+        }
 
-		return prev
-	}
+        return prev
+    }
 }
 
 let head1 = createLinkedList([1, 2, 2, 1])

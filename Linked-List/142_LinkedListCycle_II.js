@@ -37,23 +37,23 @@ import { createLinkedListCycle, linkedListToArrayCycle } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var detectCycle = function (head) {
-	let slow = head
-	let fast = head
+    let slow = head
+    let fast = head
 
-	while (fast && fast.next) {
-		slow = slow.next
-		fast = fast.next.next
-		if (slow === fast) {
-			let current = head
-			while (current !== slow) {
-				current = current.next
-				slow = slow.next
-			}
-			return current
-		}
-	}
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+        if (slow === fast) {
+            let current = head
+            while (current !== slow) {
+                current = current.next
+                slow = slow.next
+            }
+            return current
+        }
+    }
 
-	return null
+    return null
 }
 
 

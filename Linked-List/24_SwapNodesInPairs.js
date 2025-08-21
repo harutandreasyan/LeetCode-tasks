@@ -33,20 +33,20 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var swapPairs = function (head) {
-	let dummy = { next: head }
-	let current = dummy
+    let dummy = { next: head }
+    let current = dummy
 
-	while (current.next && current.next.next) {
-		let first = current.next
-		let second = current.next.next
+    while (current.next && current.next.next) {
+        let first = current.next
+        let second = current.next.next
 
-		first.next = second.next
-		second.next = first
-		current.next = second
-		current = first
-	}
+        first.next = second.next
+        second.next = first
+        current.next = second
+        current = first
+    }
 
-	return dummy.next
+    return dummy.next
 }
 
 let head1 = createLinkedList([1, 2, 3, 4])

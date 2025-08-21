@@ -28,25 +28,25 @@ import { createLinkedList, linkedListToArray } from './helpers.js'
 /* Time - O(n), Space - O(1) */
 
 var swapNodes = function (head, k) {
-	let current = head
-	let first = null
-	let second = head
+    let current = head
+    let first = null
+    let second = head
 
-	for (let i = 1; i <= k; ++i) {
-		if (i === k) first = current
-		current = current.next
-	}
+    for (let i = 1; i <= k; ++i) {
+        if (i === k) first = current
+        current = current.next
+    }
 
-	while (current) {
-		current = current.next
-		second = second.next
-	}
+    while (current) {
+        current = current.next
+        second = second.next
+    }
 
-	let firstVal = first.val
-	first.val = second.val
-	second.val = firstVal
+    let firstVal = first.val
+    first.val = second.val
+    second.val = firstVal
 
-	return head
+    return head
 }
 
 let head1 = createLinkedList([1, 2, 3, 4, 5])

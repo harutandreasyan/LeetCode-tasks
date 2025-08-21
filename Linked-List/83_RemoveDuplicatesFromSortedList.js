@@ -29,17 +29,17 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var deleteDuplicates = function (head) {
-	let current = head
+    let current = head
 
-	while (current && current.next) {
-		if (current.val === current.next.val) {
-			current.next = current.next.next
-		} else {
-			current = current.next
-		}
-	}
+    while (current && current.next) {
+        if (current.val === current.next.val) {
+            current.next = current.next.next
+        } else {
+            current = current.next
+        }
+    }
 
-	return head
+    return head
 }
 
 let head1 = createLinkedList([1, 1, 2])

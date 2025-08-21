@@ -51,21 +51,21 @@ import { createLinkedList, linkedListToArray } from './helpers.js'
 /* Time - O(n), Space - O(1) */
 
 var deleteMiddle = function (head) {
-	if (!head || !head.next) return null
+    if (!head || !head.next) return null
 
-	let slow = head
-	let fast = head
-	let prev = null
+    let slow = head
+    let fast = head
+    let prev = null
 
-	while (fast && fast.next) {
-		prev = slow
-		slow = slow.next
-		fast = fast.next.next
-	}
+    while (fast && fast.next) {
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+    }
 
-	prev.next = slow.next
+    prev.next = slow.next
 
-	return head
+    return head
 }
 
 let head1 = createLinkedList([1, 3, 4, 7, 1, 2, 6])

@@ -25,16 +25,16 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var removeElements = function (head, val) {
-	let dummy = { next: head }
-	let current = dummy
+    let dummy = { next: head }
+    let current = dummy
 
-	while (current.next) {
-		if (current.next.val === val) {
-			current.next = current.next.next
-		} else current = current.next
-	}
+    while (current.next) {
+        if (current.next.val === val) {
+            current.next = current.next.next
+        } else current = current.next
+    }
 
-	return dummy.next
+    return dummy.next
 }
 
 let head1 = createLinkedList([1, 2, 6, 3, 4, 5, 6])

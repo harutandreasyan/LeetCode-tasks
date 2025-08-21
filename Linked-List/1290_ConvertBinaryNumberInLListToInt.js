@@ -28,15 +28,15 @@ import { createLinkedList } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var getDecimalValue = function (head) {
-	let current = head
-	let decimal = 0
+    let current = head
+    let decimal = 0
 
-	while (current) {
-		decimal = decimal * 2 + current.val
-		current = current.next
-	}
+    while (current) {
+        decimal = decimal * 2 + current.val
+        current = current.next
+    }
 
-	return decimal
+    return decimal
 }
 
 let head1 = createLinkedList([1, 0, 1])

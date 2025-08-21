@@ -33,30 +33,30 @@ import { createLinkedList, linkedListToArray } from './helpers.js'
 /* Time - O(n), Space - O(1) */
 
 var reverseList = function (head) {
-	let current = head
-	let prev = null
+    let current = head
+    let prev = null
 
-	while (current) {
-		let next = current.next
-		current.next = prev
-		prev = current
-		current = next
-	}
+    while (current) {
+        let next = current.next
+        current.next = prev
+        prev = current
+        current = next
+    }
 
-	return prev
+    return prev
 }
 
 /* Recursive */
 /* Time - O(n), Space - O(n) */
 var reverseList = function (head) {
-	return reverse(head, null)
+    return reverse(head, null)
 }
 
 var reverse = function (head, prev = null) {
-	if (!head) return prev
-	let next = head.next
-	head.next = prev
-	return reverse(next, head)
+    if (!head) return prev
+    let next = head.next
+    head.next = prev
+    return reverse(next, head)
 }
 
 let head1 = createLinkedList([1, 2, 3, 4, 5])

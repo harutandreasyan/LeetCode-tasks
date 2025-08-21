@@ -28,26 +28,26 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var reverseBetween = function (head, left, right) {
-	if (!head || left === right) return head
+    if (!head || left === right) return head
 
-	let dummy = { val: 0, next: head }
-	let prev = dummy
+    let dummy = { val: 0, next: head }
+    let prev = dummy
 
-	for (let i = 1; i < left; i++) {
-		prev = prev.next
-	}
+    for (let i = 1; i < left; i++) {
+        prev = prev.next
+    }
 
-	let reverseStart = prev.next
-	let current = reverseStart.next
+    let reverseStart = prev.next
+    let current = reverseStart.next
 
-	for (let i = 0; i < right - left; i++) {
-		reverseStart.next = current.next
-		current.next = prev.next
-		prev.next = current
-		current = reverseStart.next
-	}
+    for (let i = 0; i < right - left; i++) {
+        reverseStart.next = current.next
+        current.next = prev.next
+        prev.next = current
+        current = reverseStart.next
+    }
 
-	return dummy.next
+    return dummy.next
 }
 
 let head1 = createLinkedList([1, 2, 3, 4, 5])

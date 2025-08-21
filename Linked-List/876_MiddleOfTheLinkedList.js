@@ -32,15 +32,15 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n), Space - O(1) */
 
 var middleNode = function (head) {
-	let slow = head
-	let fast = head
+    let slow = head
+    let fast = head
 
-	while (fast && fast.next) {
-		slow = slow.next
-		fast = fast.next.next
-	}
+    while (fast && fast.next) {
+        slow = slow.next
+        fast = fast.next.next
+    }
 
-	return slow
+    return slow
 }
 
 let head1 = createLinkedList([1, 2, 3, 4, 5])

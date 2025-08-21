@@ -36,31 +36,31 @@ import { createLinkedList, linkedListToArray } from "./helpers.js"
 /* Time - O(n + m), Space - O(n + m) */
 
 var addTwoNumbers = function (l1, l2) {
-	let carry = 0
-	const stack1 = []
-	const stack2 = []
+    let carry = 0
+    const stack1 = []
+    const stack2 = []
     let current = null
 
-	while (l1) {
-		stack1.push(l1.val)
-		l1 = l1.next
-	}
+    while (l1) {
+        stack1.push(l1.val)
+        l1 = l1.next
+    }
 
-	while (l2) {
-		stack2.push(l2.val)
-		l2 = l2.next
-	}
+    while (l2) {
+        stack2.push(l2.val)
+        l2 = l2.next
+    }
 
-	while (stack1.length || stack2.length || carry) {
-		const val1 = stack1.length ? stack1.pop() : 0
-		const val2 = stack2.length ? stack2.pop() : 0
-		const sum = val1 + val2 + carry
-		carry = Math.floor(sum / 10)
+    while (stack1.length || stack2.length || carry) {
+        const val1 = stack1.length ? stack1.pop() : 0
+        const val2 = stack2.length ? stack2.pop() : 0
+        const sum = val1 + val2 + carry
+        carry = Math.floor(sum / 10)
 
-		current = { val: sum % 10, next: current }
-	}
+        current = { val: sum % 10, next: current }
+    }
 
-	return current
+    return current
 }
 
 let l1 = createLinkedList([7, 2, 4, 3])
